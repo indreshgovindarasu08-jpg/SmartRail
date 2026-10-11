@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0a0a0a;
+    --surface-main: #0a0a0a;
+    --surface-card: #121212;
+    --surface-elevated: #1a1a1a;
+    --surface-border: #242424;
+    --flame-accent: #ff3e00;
+    --status-green: #00ff66;
+    --text-primary: #ffffff;
+    --text-muted: #8e8e93;
+  }
+
+  html.light {
+    --bg-main: #f4f5f8;
+    --surface-main: #ffffff;
+    --surface-card: #ffffff;
+    --surface-elevated: #f0f2f5;
+    --surface-border: #e2e8f0;
+    --flame-accent: #e63900;
+    --status-green: #059669;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+  }
+
+  body {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', 'Archivo Black', 'Arial Black', -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Bold Typography Utility Classes */
+.font-display {
+  font-family: 'Syne', 'Archivo Black', 'Arial Black', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'Space Grotesk', monospace;
+}
+
+.brutalist-card {
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.light .brutalist-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brutalist-card:hover {
+  border-color: #ff3e00;
+}
+
+.brutalist-button-primary {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.brutalist-button-primary:hover {
+  background-color: #ff3e00;
+  color: #ffffff;
+}
+
+.brutalist-button-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.brutalist-button-outline:hover {
+  border-color: #ff3e00;
+  color: #ff3e00;
+  background-color: rgba(255, 62, 0, 0.08);
+}
+
+.bold-tag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #ff3e00;
+}
+
+.watermark-text {
+  font-family: 'Syne', 'Archivo Black', 'Arial Black', sans-serif;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.04;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Pulse animation for indoor navigation pin in Flame color */
+@keyframes nav-pulse-flame {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 25px #ff3e00; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-nav-pulse {
+  animation: nav-pulse-flame 2s infinite ease-in-out;
+}
+
+@keyframes path-flow-flame {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-path-flow {
+  stroke-dasharray: 8 4;
+  animation: path-flow-flame 1.2s linear infinite;
+}
+
+/* ==========================================================================
+   LIGHT MODE COMPREHENSIVE THEME STYLES
+   ========================================================================== */
+
+html.light,
+html.light body,
+html.light #root,
+html.light .min-h-screen {
+  background-color: #f4f5f8 !important;
+  color: #0f172a !important;
+}
+
+/* Background resets in light mode */
+html.light .bg-\[\#070707\],
+html.light .bg-\[\#0a0a0a\],
+html.light .bg-\[\#050505\],
+html.light .bg-\[\#080808\] {
+  background-color: #f4f5f8 !important;
+}
+
+html.light header.bg-\[\#0a0a0a\]\/95,
+html.light header.bg-\[\#0a0a0a\]\/90,
+html.light header.bg-\[\#0a0a0a\]\/80,
+html.light nav.bg-\[\#0a0a0a\] {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .bg-\[\#111111\],
+html.light .bg-\[\#121212\],
+html.light .bg-\[\#141414\],
+html.light .bg-\[\#181818\],
+html.light .bg-\[\#1a1a1a\],
+html.light .bg-\[\#202020\],
+html.light .bg-\[\#222222\],
+html.light .bg-\[\#101010\] {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-black\/50,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/80,
+html.light .bg-black\/85,
+html.light .bg-black\/90,
+html.light .bg-black\/95 {
+  background-color: rgba(241, 245, 249, 0.92) !important;
+}
+
+html.light .bg-black {
+  background-color: #f8fafc !important;
+}
+
+/* Border styling in light mode */
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/30,
+html.light .border-white\/40 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .border-white {
+  border-color: #0f172a !important;
+}
+
+/* Text coloring in light mode */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-white\/90,
+html.light .text-white\/80,
+html.light .text-white\/70 {
+  color: #334155 !important;
+}
+
+html.light .text-white\/60,
+html.light .text-white\/50,
+html.light .text-white\/40 {
+  color: #64748b !important;
+}
+
+/* Active buttons and switches in light mode */
+html.light .bg-white.text-black {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light button.bg-white {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light .text-black {
+  color: #0f172a !important;
+}
+
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .hover\:bg-white\/5:hover {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .shadow-2xl,
+html.light .shadow-xl,
+html.light .shadow-lg,
+html.light .shadow-md {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Interactive Map Digital Twin Slab in Light Mode */
+html.light .w-\[360px\].bg-\[\#111111\],
+html.light .sm\:w-\[500px\].bg-\[\#111111\],
+html.light .md\:w-\[640px\].bg-\[\#111111\] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .watermark-text {
+  color: #0f172a !important;
+  opacity: 0.04 !important;
+}
+
+/* Exceptions for high contrast accented components */
+html.light .text-\[\#ff3e00\],
+html.light .text-\[\#00f0ff\],
+html.light .text-emerald-400,
+html.light .text-amber-400,
+html.light .text-amber-300 {
+  filter: brightness(0.9);
+}
+
